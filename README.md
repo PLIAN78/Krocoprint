@@ -1,2 +1,1 @@
-# Krocoprint
-Website for a customzied 3d printing retail company 
+This is my personal webpage, feel free to reach out 

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Lian Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d2630;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin-left: 15px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .main-content {
+            background-color: #f5f2e8;
+            border-radius: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            background-color: #0d2630;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-size:24px;
+            font-weight: bold;
+        }
+
+        .date {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .about-me, .my-stories {
+            background-color: #a8e6cf;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .my-stories {
+            background-color: #a8e6cf;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-title {
+            background-color: #0d2630;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .contact-info {
+            background-color: #a8e6cf;
+            border-radius: 15px;
+            padding: 15px;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card.blue {
+            background-color: #add8e6;
+        }
+
+        .project-card.red {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .project-card.gray {
+            background-color: #f0f0f0;
+        }
+
+        .project-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin-right: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        .project-icon.map {
+            background-color: #ffcc99;
+        }
+
+        .project-icon.ai {
+            background-color: #99ccff;
+        }
+
+        .project-icon.drone {
+            background-color: #99ffcc;
+        }
+
+        .project-content {
+            color:#333;
+            flex: 1;
+        }
+
+        .coming-soon {
+            background-color: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-row {
+                flex-direction: column;
+            }
+
+            .date {
+                margin-top: 10px;
+            }
+
+            .contact {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                margin-left: 0;
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .social-icons a {
+                margin-left: 10px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Peter Lian Portfolio</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/peterlian64"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/PLIAN78"><i class="fab fa-github"></i></a>
+                <a href="https://medium.com/@lianpeter1225"><i class="fab fa-medium"></i></a>
+                <a href="https://www.youtube.com/@ppowerstation3547"><i class="fab fa-youtube"></i></a>
+                <a href="www.linkedin.com/in/peter-yishuo-lian-709170286
+
+"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="header-row">
+                <div class="section-title">About Me</div>
+                <div class="date">April-2025</div>
+            </div>
+
+            <div class="about-me">
+                <p>Hi, I'm Peter Lian, an aspiring front-end developer and designer with a passion for creating engaging digital experiences. This September, I'll be starting university, where I hope to further hone my skills. Beyond tech, I'm an entrepreneur, competitive fencer, and experienced drone pilot.</p>
+            </div>
+
+            <div class="section-title">My Stories</div>
+            <div class="my-stories">
+                <p>My journey in front-end development began in grade 9, when I worked on school projects and later worked as a front-end developer at Experience Driven during my 2024 summer co-op.</p>
+                <br>
+                <p>I'm also the co-founder and marketing lead of AI Ventura, a startup focused on teaching elementary students about AI technologies.</p>
+                <br>
+                <p>Outside of tech, I've been a drone pilot, competed in various events, and was a former local elementary school, where I now also serve as a referee.</p>
+            </div>
+
+            <div class="contact">
+                <div class="contact-title">Contact</div>
+                <div class="contact-info">
+                    Email: <a href="mailto:lianpeter1225@gmail.com">lianpeter1225@gmail.com</a><br>
+                    Phone: (289) 931-4585
+                </div>
+            </div>
+        </div>
+
+        <div class="header-row">
+            <div class="section-title">Projects(non-tech)</div>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <a href="https://confused-lizard-ada.notion.site/NewsMapper-d6bdf72d62ee4da89aeb2e6d34145bc4">
+                <div class="project-icon map"><img src="public/external/image11612-z9qa-200h.png" alt="Drone Company Logo" style="max-width: 100%; max-height: 100%;"></div>
+                    </a>
+                <div class="project-content">
+                    <p>NewsMapper: With my partner, we built a platform that connects news stories to the visualization of a map.</p>
+                </div>
+            </div>
+
+            <div class="project-card red">
+                <a href="https://www.linkedin.com/company/ai-ventura ">
+                <div class="project-icon ai"><img src="public/external/image169333791317011614-2ws-200h.png" alt="Drone Company Logo" style="max-width: 100%; max-height: 100%;"></div>
+                </a>
+                <div class="project-content">
+                    <p>AI Ventura: The goal for this mini startup was to provide opportunities to learn about AI technologies. We achieved decent success but ended due to extensive exams.</p>
+                </div>
+            </div>
+
+            <div class="project-card gray">
+                <a href="https://masterblue.ca/">
+                <div class="project-icon drone"><img src="public/external/image2025031114541911716-tcpm-200h.png" alt="Drone Company Logo" style="max-width: 100%; max-height: 100%;"></div>
+                </a>
+                <div class="project-content">
+                    <p>My drone company has been selling and distributing drones since 2020.</p>
+                </div>
+            </div>
+
+            <div class="coming-soon">Coming Soon...</div>
+        </div>
+    </div>
+</body>
+</html>
