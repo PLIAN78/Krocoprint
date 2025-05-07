@@ -411,40 +411,22 @@
             font-size: 0.9rem;
         }
         /* Add this to your existing CSS styles */
-    #hero {
-        position: relative;
-        color: white;
-        text-align: center;
-        padding: 8rem 0;
-        overflow: hidden; /* Ensures video doesn't overflow */
-    }
-    
-    #hero-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Cover the entire section */
-        z-index: -1; /* Place behind content */
-    }
-    
-    .video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
-        z-index: -1;
-    }
-    
-    .hero-content {
-        position: relative;
-        z-index: 1; /* Keep content above video */
-        max-width: 800px;
-        margin: 0 auto;
-    }
+    .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -487,12 +469,15 @@
         </div>
     </header>
 
- <section id="hero">
-   <video id="hero-video" autoplay muted loop playsinline>
-    <source src="20250505_2209_05_5207591_V1.mp4" type="video/mp4">
-    <source src="20250505_2209_05_5207591_V1.webm" type="video/webm">
-    Your browser does not support the video tag.
-</video>
+<section id="hero">
+    <div class="video-background">
+        <iframe 
+            src="https://www.youtube.com/embed/IsV82yo95vE?autoplay=1&mute=1&loop=1&playlist=IsV82yo95vE&controls=0&disablekb=1&modestbranding=1" 
+            frameborder="0" 
+            allow="autoplay; encrypted-media" 
+            allowfullscreen>
+        </iframe>
+    </div>
     <div class="video-overlay"></div>
     <div class="container hero-content">
         <h1>Custom 3D Printed Gadgets For Your Unique Needs</h1>
