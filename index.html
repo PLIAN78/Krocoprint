@@ -518,42 +518,43 @@
                 <p>Browse through our range of customizable 3D printed gadgets or design your own from scratch.</p>
             </div>
             <div class="product-grid">
-                <div class="product-card">
-                    <img src="unnamed (2).png" alt="Smartphone Stand" class="product-img">
-                    <div class="product-info">
-                        <h3>Smartphone Stand</h3>
-                        <p>Customizable stand for any smartphone model with adjustable viewing angles.</p>
-                        <span class="price">From $9.99</span>
-                        <a href="#" class="btn">Customize Now</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="unnamed (1).png" alt="Desk Organizer" class="product-img">
-                    <div class="product-info">
-                        <h3>Desk Organizer</h3>
-                        <p>Personalized desk organizer with compartments tailored to your needs.</p>
-                        <span class="price">From $11.99</span>
-                        <a href="#" class="btn">Customize Now</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="download.jpeg" alt="Gadget Mount" class="product-img">
-                    <div class="product-info">
-                        <h3>Gadget Mount</h3>
-                        <p>Universal mounting solution for electronics, cameras, and other devices.</p>
-                        <span class="price">From $8.99</span>
-                        <a href="#" class="btn">Customize Now</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="unnamed.png" alt="Cable Management" class="product-img">
-                    <div class="product-info">
-                        <h3>Customized Figures </h3>
-                        <p>We provide customized figures for fun, work or supporting of your dreams </p>
-                        <span class="price">From $6.99</span>
-                        <a href="#" class="btn">Customize Now</a>
-                    </div>
-                </div>
+<div class="product-card">
+    <img src="unnamed (2).png" alt="Smartphone Stand" class="product-img">
+    <div class="product-info">
+        <h3>Smartphone Stand</h3>
+        <p>Customizable stand for any smartphone model with adjustable viewing angles.</p>
+        <span class="price">From $9.99</span>
+        <a href="#contact" class="btn customize-btn" data-product="Smartphone Stand">Customize Now</a>
+    </div>
+</div>
+<div class="product-card">
+    <img src="unnamed (1).png" alt="Desk Organizer" class="product-img">
+    <div class="product-info">
+        <h3>Desk Organizer</h3>
+        <p>Personalized desk organizer with compartments tailored to your needs.</p>
+        <span class="price">From $11.99</span>
+        <a href="#contact" class="btn customize-btn" data-product="Desk Organizer">Customize Now</a>
+    </div>
+</div>
+<div class="product-card">
+    <img src="download.jpeg" alt="Gadget Mount" class="product-img">
+    <div class="product-info">
+        <h3>Gadget Mount</h3>
+        <p>Universal mounting solution for electronics, cameras, and other devices.</p>
+        <span class="price">From $8.99</span>
+        <a href="#contact" class="btn customize-btn" data-product="Gadget Mount">Customize Now</a>
+    </div>
+</div>
+<div class="product-card">
+    <img src="unnamed.png" alt="Cable Management" class="product-img">
+    <div class="product-info">
+        <h3>Customized Figures</h3>
+        <p>We provide customized figures for fun, work or supporting of your dreams</p>
+        <span class="price">From $6.99</span>
+        <a href="#contact" class="btn customize-btn" data-product="Customized Figures">Customize Now</a>
+    </div>
+</div>
+
             </div>
         </div>
     </section>
@@ -748,6 +749,83 @@
         });
     </script>
     <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Create JSON object from form data
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Send the data as JSON to Formspree
+        fetch('https://formspree.io/f/mrbqpwwy', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Success message
+                alert('Your message has been sent successfully!');
+                document.getElementById('contactForm').reset();
+            } else {
+                // Error message
+                alert('There was an error sending your message. Please try again.');
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        });
+    });
+</script>
+    <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Handle customize button clicks to pre-populate the form
+    document.querySelectorAll('.customize-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Get the product name from the data attribute
+            const productName = this.getAttribute('data-product');
+            
+            // Pre-populate the subject field with the product name
+            if (productName) {
+                setTimeout(() => {
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        subjectField.value = `Order Request: ${productName}`;
+                    }
+                    
+                    // Add a pre-populated message for convenience
+                    const messageField = document.getElementById('message');
+                    if (messageField) {
+                        messageField.value = `I'm interested in ordering the ${productName}. Please provide more details about customization options and pricing.`;
+                    }
+                    
+                    // Focus on the name field for better UX
+                    document.getElementById('name').focus();
+                }, 800); // Small delay to ensure the form is in view
+            }
+        });
+    });
+    
+    // Contact form submission handler
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
