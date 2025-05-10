@@ -419,13 +419,21 @@
     height: 100%;
     overflow: hidden;
     z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.video-background iframe {
-    width: 100%;
-    height: 100%;
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     object-fit: cover;
-    pointer-events: none;
 }
         @media (max-width: 768px) {
             .navbar {
@@ -778,90 +786,3 @@
                 // Error message
                 alert('There was an error sending your message. Please try again.');
             }
-            return response.json();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('There was an error sending your message. Please try again.');
-        });
-    });
-</script>
-    <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Handle customize button clicks to pre-populate the form
-    document.querySelectorAll('.customize-btn').forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Get the product name from the data attribute
-            const productName = this.getAttribute('data-product');
-            
-            // Pre-populate the subject field with the product name
-            if (productName) {
-                setTimeout(() => {
-                    const subjectField = document.getElementById('subject');
-                    if (subjectField) {
-                        subjectField.value = `Order Request: ${productName}`;
-                    }
-                    
-                    // Add a pre-populated message for convenience
-                    const messageField = document.getElementById('message');
-                    if (messageField) {
-                        messageField.value = `I'm interested in ordering the ${productName}. Please provide more details about customization options and pricing.`;
-                    }
-                    
-                    // Focus on the name field for better UX
-                    document.getElementById('name').focus();
-                }, 800); // Small delay to ensure the form is in view
-            }
-        });
-    });
-    
-    // Contact form submission handler
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Create JSON object from form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Send the data as JSON to Formspree
-        fetch('https://formspree.io/f/mrbqpwwy', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData)
-        })
-        .then(response => {
-            if (response.ok) {
-                // Success message
-                alert('Your message has been sent successfully!');
-                document.getElementById('contactForm').reset();
-            } else {
-                // Error message
-                alert('There was an error sending your message. Please try again.');
-            }
-            return response.json();
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('There was an error sending your message. Please try again.');
-        });
-    });
-</script>
-</body>
-</html>
