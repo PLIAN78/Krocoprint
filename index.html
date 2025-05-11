@@ -745,19 +745,46 @@
     </footer>
 
 </html>
-    <script>
-        // Simple smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+     <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-    </script>
-    <script>
+    });
+
+    // Handle customize button clicks to pre-populate the form
+    document.querySelectorAll('.customize-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Get the product name from the data attribute
+            const productName = this.getAttribute('data-product');
+            
+            // Pre-populate the subject field with the product name
+            if (productName) {
+                setTimeout(() => {
+                    const subjectField = document.getElementById('subject');
+                    if (subjectField) {
+                        subjectField.value = `Order Request: ${productName}`;
+                    }
+                    
+                    // Add a pre-populated message for convenience
+                    const messageField = document.getElementById('message');
+                    if (messageField) {
+                        messageField.value = `I'm interested in ordering the ${productName}. Please provide more details about customization options and pricing.`;
+                    }
+                    
+                    // Focus on the name field for better UX
+                    document.getElementById('name').focus();
+                }, 800); // Small delay to ensure the form is in view
+            }
+        });
+    });
+    
+    // Contact form submission handler
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -787,4 +814,11 @@
                 // Error message
                 alert('There was an error sending your message. Please try again.');
             }
-    </script>
+            return response.json();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        });
+    });
+</script>
